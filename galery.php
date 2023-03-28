@@ -64,8 +64,68 @@
             </form>
           </div>
           </div>
+          <div class="col-md-12">
+          <div class="">
+          </div>
+          <!-- /.box -->
+          <div class="box">
+            <div class="box-header">
+              <h3 class="box-title">
+        
+              </h3>
+            </div>
+            <!-- /.box-header -->
+            <div class="box-body">
+              <table id="example1" class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                  <th>No.</th>
+                  <th>Nama Barang</th>
+                  <th>Kode Barang</th>
+                  <th>Jenis</th>
+                  <th>Gambar</th>
+                  <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <?php
+                      include 'conn.php';
+                      $kategori = mysqli_query($koneksi, "SELECT a.*, b.*, c.* 
+                        from tbkategori a, golongan b, galery c
+                        where a.golongan_id = b.golongan_id and a.id_kategori = c.id_kategori");
+                        $no=1;
+                        foreach ($kategori as $row){
+            echo "<tr>
+            <td>$no</td>
+            <td>".$row['nama_kategori']."</td>
+            <td>".$row['kode']."</td>
+            <td>".$row['nama_gol']."</td>
+            <td><img src='images/".$row['image']."' width='50' height='50'></td>
+            <td> 
+               <a href='hapusKategori.php?id_kategori=".$row['id_kategori']." type='button' class='btn small-btn-danger'><i class='fa fa-eraser'></i></a>
+            </td>
+             </tr>";
+
+            $no++;
+                    }
+                ?>
+                </tbody>
+                <tfoot>
+
+              </table>
+
+            </div>
+            <!-- /.box-body -->
+          </div>
+          <!-- /.box -->
+        </div>
+         <!-- /.col -->
+      </div>
+
         </div>
       </section>
+
+      
     </div>
   <!-- /.content-wrapper -->
 
