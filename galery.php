@@ -89,7 +89,7 @@
                                     <div class='col-md-3'>
                                       <center>
                                         <img src='images/".$row['image']."' width='150' height='150'><br>
-                                        ".$row['nama_kategori']."
+                                        ".$row['nama_kategori']."<br>
                                       </center>
                                     </div>
                                     ";
